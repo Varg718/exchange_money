@@ -2,6 +2,7 @@ import requests
 import tkinter as tk
 from tkinter import ttk
 from PIL import Image, ImageTk
+from ttkthemes import ThemedStyle
 
 def exchange_currency():
     currency_to = currency_combobox.get()
@@ -69,6 +70,21 @@ exchange_button.pack()
 # Wynik wymiany
 result_label = tk.Label(root, text='', bg='black', fg='white')
 result_label.pack()
+# Przechowywanie referencji do obiektu obrazu w zmiennej globalnej
+resized_background_photo = None
+
+# Funkcja do dostosowywania rozmiaru tła do rozmiaru okna
+def resize_background(event):
+    global resized_background_photo  # Dodaj globalną deklarację
+    new_width = event.width
+    new_height = event.height
+    resized_image = background_image.resize((new_width, new_height), Image.BICUBIC)
+    resized_background_photo = ImageTk.PhotoImage(resized_image)
+    background_label.configure(image=resized_background_photo)
+    background_label.image = resized_background_photo
+
+# Bindowanie funkcji resize_background do zmiany rozmiaru okna
+root.bind('<Configure>', resize_background)
 
 # Uruchomienie głównej pętli programu
 root.mainloop()
