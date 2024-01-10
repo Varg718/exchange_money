@@ -28,7 +28,7 @@ def exchange_currency():
         result_label.config(text=f'Error: Unable to find exchange rate for {currency_to}.')
     else:
         result = quantity / rate_to
-        result_label.config(text=f'You will receive {currency_to}: {result:.2f}!')
+        result_label.config(text=f'You will receive {result:.2f} {currency_to}!')
 
 # Pobieranie kursów wymiany przy uruchomieniu programu
 url = requests.get('http://api.nbp.pl/api/exchangerates/tables/A/')
