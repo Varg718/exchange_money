@@ -41,7 +41,7 @@ root.geometry('500x300')  # Ustawienie rozmiaru okna
 root.configure(bg='black')  # Ustawienie tła na czarne
 
 # Dodanie tła
-background_image = Image.open("C:\\Users\\Komfig\\Desktop\\git_hub_projects\\exchange_project\\output.jpg")
+background_image = Image.open(r"/home/robertw/Desktop/git_hub_projects/exchange_project/output.jpg")
 background_photo = ImageTk.PhotoImage(background_image)
 background_label = tk.Label(root, image=background_photo)
 background_label.place(relwidth=1, relheight=1)
